@@ -1,6 +1,6 @@
 /// Flutter code sample for BottomNavigationBar
 import 'package:flutter/material.dart';
-import 'package:navegacion_02/heater_l2_State_old.dart';
+import 'package:navegacion_02/screens/heater_l2_State_old.dart';
 
 /// Heater01 stateful widget that the main application instantiates.
 class HeaterMain extends StatefulWidget {

@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 //import 'package:flutter/cupertino.dart';
 //import 'package:flutter/services.dart';
-import 'package:navegacion_02/heater_l1.dart';
+import 'package:navegacion_02/screens/heater_l1.dart';
 //import 'package:navegacion_02/heater_l2_State.dart';
-import 'package:navegacion_02/heater_l2_Mode.dart';
-import 'package:navegacion_02/heater_l2_Pattern.dart';
+import 'package:navegacion_02/screens/heater_l2_Mode.dart';
+import 'package:navegacion_02/screens/heater_l2_Pattern.dart';
 //import 'package:flutter/rendering.dart' show debugPaintSizeEnabled;
 
 class Gadget {
