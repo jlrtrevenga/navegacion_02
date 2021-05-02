@@ -40,7 +40,6 @@ class Nav2App extends StatelessWidget {
         '/Heaterl2Mode': (context) => Heaterl2Mode(),
         '/Heaterl2Config': (context) => Heaterl2Config(),
 //        '/Heaterl2Actual': (context) => Heaterl2Actual(),
-//        '/details': (context) => DetailScreen2(),
       },
     );
   }
