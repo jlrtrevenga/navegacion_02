@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 //import 'package:flutter/cupertino.dart';
 //import 'package:flutter/services.dart';
+import 'package:navegacion_02/model/heater_model.dart';
 import 'package:navegacion_02/screens/heater_l1.dart';
 //import 'package:navegacion_02/heater_l2_State.dart';
 import 'package:navegacion_02/screens/heater_l2_Mode.dart';
@@ -31,16 +33,19 @@ void main() {
 class Nav2App extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      theme: ThemeData.light(),
-      initialRoute: '/home',
-      routes: {
-        '/home': (context) => HomeScreen(),
-        '/Heaterl1Devices': (context) => HeaterMain(),
-        '/Heaterl2Mode': (context) => Heaterl2Mode(),
-        '/Heaterl2Config': (context) => Heaterl2Config(),
-//        '/Heaterl2Actual': (context) => Heaterl2Actual(),
-      },
+    return ChangeNotifierProvider(
+      create: (context) => Heater(),
+      child: MaterialApp(
+        theme: ThemeData.light(),
+        initialRoute: '/home',
+        routes: {
+          '/home': (context) => HomeScreen(),
+          '/Heaterl1Devices': (context) => HeaterMain(),
+          '/Heaterl2Mode': (context) => Heaterl2Mode(),
+          '/Heaterl2Config': (context) => Heaterl2Config(),
+          //        '/Heaterl2Actual': (context) => Heaterl2Actual(),
+        },
+      ),
     );
   }
 }

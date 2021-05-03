@@ -1,5 +1,7 @@
 /// Flutter code sample for BottomNavigationBar
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+import 'package:navegacion_02/model/heater_model.dart';
 
 /// Heater01 stateful widget that the main application instantiates.
 class HeaterMain extends StatefulWidget {
@@ -16,6 +18,7 @@ class _HeaterMainState extends State<HeaterMain> {
 
   @override
   Widget build(BuildContext context) {
+    var heater = Provider.of<Heater>(context);
     return DefaultTabController(
       initialIndex: 0,
       length: 3,
@@ -93,6 +96,8 @@ class ScreenHoy extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    var heater = Provider.of<Heater>(context);
+
     return Padding(
       padding: EdgeInsets.all(25.0),
       child: Column(
@@ -226,9 +231,10 @@ class ScreenHoy extends StatelessWidget {
             children: [
               Center(
                 child: Switch(
-                  value: _manualAdjust,
+                  value: heater.ajusteManual,
                   onChanged: (bool newValue) {
                     _manualAdjust = !_manualAdjust;
+                    heater.ajusteManual = !heater.ajusteManual;
                     //Hay que llamar a SetState para que lo mantenga y redibuje
                   },
                   activeColor: Theme.of(context).accentColor,
@@ -252,7 +258,10 @@ class ScreenHoy extends StatelessWidget {
                       borderRadius: BorderRadius.all(Radius.circular(30))),
                   //side: BorderSide(color: Colors.red),
                 ),
-                onPressed: () => {_manualOverride--},
+                onPressed: () => {
+                  //_manualOverride--
+                  heater.ajusteManualIncrement = -1
+                },
               ),
               Container(
                 width: 20,
@@ -270,7 +279,7 @@ class ScreenHoy extends StatelessWidget {
                   ),
                 ),
                 child: Text(
-                  '+0 ºC',
+                  heater.ajusteManualValue.toStringAsFixed(1) + 'ºC',
                   style: Theme.of(context).textTheme.headline5,
                 ),
               ),
@@ -284,7 +293,10 @@ class ScreenHoy extends StatelessWidget {
                       borderRadius: BorderRadius.all(Radius.circular(30))),
                   //side: BorderSide(color: Colors.red),
                 ),
-                onPressed: () => {_manualOverride++},
+                onPressed: () => {
+                  //_manualOverride--
+                  heater.ajusteManualIncrement = 1
+                },
               ),
             ],
           ),

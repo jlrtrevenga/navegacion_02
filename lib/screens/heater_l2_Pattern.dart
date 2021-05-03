@@ -1,5 +1,7 @@
 /// Flutter code sample for BottomNavigationBar
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+import 'package:navegacion_02/model/heater_model.dart';
 
 /// Heater01 stateful widget that the main application instantiates.
 class Heaterl2Config extends StatefulWidget {
@@ -15,6 +17,8 @@ class _Heaterl2ConfigState extends State<Heaterl2Config> {
 
   @override
   Widget build(BuildContext context) {
+    var heater = Provider.of<Heater>(context);
+
     return DefaultTabController(
       initialIndex: 0,
       length: 3,
